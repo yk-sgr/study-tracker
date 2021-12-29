@@ -105,7 +105,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   await Navigator.push(
                                     context,
                                     PageTransition(
-                                      type: PageTransitionType.leftToRight,
+                                      type: PageTransitionType.rightToLeft,
                                       duration: Duration(milliseconds: 300),
                                       reverseDuration:
                                           Duration(milliseconds: 300),
