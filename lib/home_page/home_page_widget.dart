@@ -37,7 +37,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             borderWidth: 1,
             buttonSize: 60,
             icon: Icon(
-              Icons.settings_outlined,
+              Icons.logout,
               color: Color(0xFF303030),
               size: 30,
             ),
