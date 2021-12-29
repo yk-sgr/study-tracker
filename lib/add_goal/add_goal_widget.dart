@@ -47,159 +47,169 @@ class _AddGoalWidgetState extends State<AddGoalWidget> {
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height * 1,
-          decoration: BoxDecoration(),
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Spacer(),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-                  child: TextFormField(
-                    controller: textController1,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      hintText: 'Name',
-                      hintStyle: FlutterFlowTheme.bodyText1.override(
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 1,
+            decoration: BoxDecoration(),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                    child: TextFormField(
+                      controller: textController1,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        hintText: 'Name',
+                        hintStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Open Sans',
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFF303030),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFF303030),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        contentPadding:
+                            EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                      ),
+                      style: FlutterFlowTheme.bodyText1.override(
                         fontFamily: 'Open Sans',
                         fontSize: 13,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0xFF303030),
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0xFF303030),
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                      textAlign: TextAlign.center,
                     ),
-                    style: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Open Sans',
-                      fontSize: 13,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-                  child: TextFormField(
-                    controller: textController2,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      hintText: 'Description',
-                      hintStyle: FlutterFlowTheme.bodyText1.override(
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                    child: TextFormField(
+                      controller: textController2,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        hintText: 'Description',
+                        hintStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Open Sans',
+                          fontSize: 13,
+                          fontWeight: FontWeight.normal,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFF303030),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFF303030),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        contentPadding:
+                            EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                      ),
+                      style: FlutterFlowTheme.bodyText1.override(
                         fontFamily: 'Open Sans',
                         fontSize: 13,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.normal,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0xFF303030),
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0xFF303030),
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                      textAlign: TextAlign.center,
                     ),
-                    style: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Open Sans',
-                      fontSize: 13,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 40),
-                  child: FFButtonWidget(
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                          child: InkWell(
+                            onTap: () async {
+                              await DatePicker.showDatePicker(
+                                context,
+                                showTitleActions: true,
+                                onConfirm: (date) {
+                                  setState(() => datePicked = date);
+                                },
+                                currentTime: getCurrentTimestamp,
+                                minTime: getCurrentTimestamp,
+                              );
+                            },
+                            child: Text(
+                              'Select Due',
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Open Sans',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                          child: Text(
+                            dateTimeFormat('d/M/y', datePicked),
+                            style: FlutterFlowTheme.bodyText1,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  FFButtonWidget(
                     onPressed: () async {
-                      await DatePicker.showDatePicker(
+                      final goalsCreateData = createGoalsRecordData(
+                        name: textController1.text,
+                        description: textController2.text,
+                        due: datePicked,
+                        userId: currentUserUid,
+                      );
+                      await GoalsRecord.collection.doc().set(goalsCreateData);
+                      await Navigator.pushAndRemoveUntil(
                         context,
-                        showTitleActions: true,
-                        onConfirm: (date) {
-                          setState(() => datePicked = date);
-                        },
-                        currentTime: getCurrentTimestamp,
-                        minTime: getCurrentTimestamp,
+                        MaterialPageRoute(
+                          builder: (context) => HomePageWidget(),
+                        ),
+                        (r) => false,
                       );
                     },
-                    text: 'Due',
+                    text: 'Add Goal',
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 50,
-                      color: Colors.white,
+                      color: Color(0xFF303030),
                       textStyle: FlutterFlowTheme.subtitle2.override(
                         fontFamily: 'Open Sans',
-                        color: Color(0xFF303030),
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.normal,
                       ),
                       borderSide: BorderSide(
-                        color: Color(0xFF303030),
+                        color: Colors.transparent,
                         width: 2,
                       ),
                       borderRadius: 20,
                     ),
                   ),
-                ),
-                FFButtonWidget(
-                  onPressed: () async {
-                    final goalsCreateData = createGoalsRecordData(
-                      name: textController1.text,
-                      description: textController2.text,
-                      due: datePicked,
-                    );
-                    await GoalsRecord.collection.doc().set(goalsCreateData);
-                    await Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePageWidget(),
-                      ),
-                      (r) => false,
-                    );
-                  },
-                  text: 'Add Goal',
-                  options: FFButtonOptions(
-                    width: double.infinity,
-                    height: 50,
-                    color: Color(0xFF303030),
-                    textStyle: FlutterFlowTheme.subtitle2.override(
-                      fontFamily: 'Open Sans',
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.normal,
-                    ),
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 2,
-                    ),
-                    borderRadius: 20,
-                  ),
-                ),
-                Spacer(flex: 2),
-              ],
+                  Spacer(flex: 2),
+                ],
+              ),
             ),
           ),
         ),
