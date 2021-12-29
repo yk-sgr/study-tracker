@@ -58,13 +58,13 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
         actions: [
           FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30,
+            borderRadius: 0,
             borderWidth: 1,
             buttonSize: 60,
             icon: FaIcon(
               FontAwesomeIcons.trash,
               color: Color(0xFFB3B2B2),
-              size: 30,
+              size: 20,
             ),
             onPressed: () async {
               await widget.goal.delete();
