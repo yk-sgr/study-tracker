@@ -56,6 +56,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         elevation: 0,
       ),
       backgroundColor: Colors.white,
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          print('FloatingActionButton pressed ...');
+        },
+        backgroundColor: FlutterFlowTheme.primaryColor,
+        elevation: 8,
+        label: Text(
+          'Add Goal',
+          style: FlutterFlowTheme.bodyText1,
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
@@ -64,7 +75,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             height: MediaQuery.of(context).size.height * 1,
             decoration: BoxDecoration(),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
