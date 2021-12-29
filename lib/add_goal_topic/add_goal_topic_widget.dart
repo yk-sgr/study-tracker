@@ -108,6 +108,8 @@ class _AddGoalTopicWidgetState extends State<AddGoalTopicWidget> {
                         await TopicsRecord.collection
                             .doc()
                             .set(topicsCreateData);
+                      } else {
+                        return;
                       }
                       Navigator.pop(context);
                     },

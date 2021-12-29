@@ -147,23 +147,30 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                            MainAxisAlignment.spaceBetween,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                          FlutterFlowIconButton(
-                                            borderColor: Colors.transparent,
-                                            borderRadius: 30,
-                                            borderWidth: 1,
-                                            buttonSize: 40,
-                                            icon: FaIcon(
-                                              FontAwesomeIcons.trash,
-                                              color: Color(0xFFB3B2B2),
-                                              size: 20,
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 5, 0),
+                                            child: FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 30,
+                                              borderWidth: 1,
+                                              buttonSize: 35,
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.trash,
+                                                color: Color(0xFFB3B2B2),
+                                                size: 17,
+                                              ),
+                                              onPressed: () async {
+                                                await listViewTopicsRecord
+                                                    .reference
+                                                    .delete();
+                                              },
                                             ),
-                                            onPressed: () {
-                                              print('IconButton pressed ...');
-                                            },
                                           ),
                                           Text(
                                             listViewTopicsRecord.name,
