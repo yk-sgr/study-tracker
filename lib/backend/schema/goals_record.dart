@@ -38,6 +38,10 @@ abstract class GoalsRecord implements Built<GoalsRecord, GoalsRecordBuilder> {
       .snapshots()
       .map((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static Future<GoalsRecord> getDocumentOnce(DocumentReference ref) => ref
+      .get()
+      .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
+
   GoalsRecord._();
   factory GoalsRecord([void Function(GoalsRecordBuilder) updates]) =
       _$GoalsRecord;

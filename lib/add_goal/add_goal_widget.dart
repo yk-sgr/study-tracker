@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../home_page/home_page_widget.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -177,13 +178,18 @@ class _AddGoalWidgetState extends State<AddGoalWidget> {
                   ),
                   FFButtonWidget(
                     onPressed: () async {
-                      final goalsCreateData = createGoalsRecordData(
-                        name: textController1.text,
-                        description: textController2.text,
-                        due: datePicked,
-                        userId: currentUserUid,
-                      );
-                      await GoalsRecord.collection.doc().set(goalsCreateData);
+                      if (functions.validateAddGoal(textController1.text,
+                          textController2.text, datePicked)) {
+                        final goalsCreateData = createGoalsRecordData(
+                          name: textController1.text,
+                          description: textController2.text,
+                          due: datePicked,
+                          userId: currentUserUid,
+                        );
+                        await GoalsRecord.collection.doc().set(goalsCreateData);
+                      } else {
+                        return;
+                      }
                       await Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(

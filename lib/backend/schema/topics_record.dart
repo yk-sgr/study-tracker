@@ -41,6 +41,10 @@ abstract class TopicsRecord
       .snapshots()
       .map((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static Future<TopicsRecord> getDocumentOnce(DocumentReference ref) => ref
+      .get()
+      .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
+
   TopicsRecord._();
   factory TopicsRecord([void Function(TopicsRecordBuilder) updates]) =
       _$TopicsRecord;
