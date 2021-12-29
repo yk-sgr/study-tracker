@@ -124,7 +124,7 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceAround,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
