@@ -12,3 +12,15 @@ import '../../auth/auth_util.dart';
 String idFromGoal(DocumentReference goal) {
   return goal.id;
 }
+
+bool validateAddGoal(
+  String name,
+  String description,
+  DateTime due,
+) {
+  return name != null &&
+      name.isNotEmpty &&
+      description != null &&
+      description.isNotEmpty &&
+      due != null;
+}
