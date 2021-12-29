@@ -113,77 +113,62 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
                                   color: FlutterFlowTheme.secondaryColor,
                                   borderRadius: BorderRadius.circular(20),
                                 ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 15, 20, 15),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            listViewTopicsRecord.name,
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Open Sans',
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          if (!(listViewTopicsRecord.done) ??
-                                              true)
-                                            FlutterFlowIconButton(
-                                              borderColor: Colors.transparent,
-                                              borderRadius: 30,
-                                              borderWidth: 1,
-                                              buttonSize: 60,
-                                              icon: Icon(
-                                                Icons
-                                                    .check_box_outline_blank_outlined,
-                                                color: Colors.black,
-                                                size: 30,
-                                              ),
-                                              onPressed: () async {
-                                                final topicsUpdateData =
-                                                    createTopicsRecordData(
-                                                  done: true,
-                                                );
-                                                await listViewTopicsRecord
-                                                    .reference
-                                                    .update(topicsUpdateData);
-                                              },
-                                            ),
-                                          if (listViewTopicsRecord.done ?? true)
-                                            FlutterFlowIconButton(
-                                              borderColor: Colors.transparent,
-                                              borderRadius: 30,
-                                              borderWidth: 1,
-                                              buttonSize: 60,
-                                              icon: Icon(
-                                                Icons.check_box,
-                                                color: Colors.black,
-                                                size: 30,
-                                              ),
-                                              onPressed: () async {
-                                                final topicsUpdateData =
-                                                    createTopicsRecordData(
-                                                  done: false,
-                                                );
-                                                await listViewTopicsRecord
-                                                    .reference
-                                                    .update(topicsUpdateData);
-                                              },
-                                            ),
-                                        ],
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      listViewTopicsRecord.name,
+                                      style:
+                                          FlutterFlowTheme.bodyText1.override(
+                                        fontFamily: 'Open Sans',
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                    if (!(listViewTopicsRecord.done) ?? true)
+                                      FlutterFlowIconButton(
+                                        borderColor: Colors.transparent,
+                                        borderRadius: 30,
+                                        borderWidth: 1,
+                                        buttonSize: 60,
+                                        icon: Icon(
+                                          Icons
+                                              .check_box_outline_blank_outlined,
+                                          color: Colors.black,
+                                          size: 30,
+                                        ),
+                                        onPressed: () async {
+                                          final topicsUpdateData =
+                                              createTopicsRecordData(
+                                            done: true,
+                                          );
+                                          await listViewTopicsRecord.reference
+                                              .update(topicsUpdateData);
+                                        },
+                                      ),
+                                    if (listViewTopicsRecord.done ?? true)
+                                      FlutterFlowIconButton(
+                                        borderColor: Colors.transparent,
+                                        borderRadius: 30,
+                                        borderWidth: 1,
+                                        buttonSize: 60,
+                                        icon: Icon(
+                                          Icons.check_box,
+                                          color: Colors.black,
+                                          size: 30,
+                                        ),
+                                        onPressed: () async {
+                                          final topicsUpdateData =
+                                              createTopicsRecordData(
+                                            done: false,
+                                          );
+                                          await listViewTopicsRecord.reference
+                                              .update(topicsUpdateData);
+                                        },
+                                      ),
+                                  ],
                                 ),
                               ),
                             );
