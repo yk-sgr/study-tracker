@@ -98,13 +98,17 @@ class _AddGoalTopicWidgetState extends State<AddGoalTopicWidget> {
                   ),
                   FFButtonWidget(
                     onPressed: () async {
-                      final topicsCreateData = createTopicsRecordData(
-                        userId: currentUserUid,
-                        name: textController.text,
-                        done: false,
-                        goalId: functions.idFromGoal(widget.goal),
-                      );
-                      await TopicsRecord.collection.doc().set(topicsCreateData);
+                      if (functions.validateAddGoalTopic(textController.text)) {
+                        final topicsCreateData = createTopicsRecordData(
+                          userId: currentUserUid,
+                          name: textController.text,
+                          done: false,
+                          goalId: functions.idFromGoal(widget.goal),
+                        );
+                        await TopicsRecord.collection
+                            .doc()
+                            .set(topicsCreateData);
+                      }
                       Navigator.pop(context);
                     },
                     text: 'Add Goal',

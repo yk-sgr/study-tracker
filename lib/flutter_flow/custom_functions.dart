@@ -24,3 +24,7 @@ bool validateAddGoal(
       description.isNotEmpty &&
       due != null;
 }
+
+bool validateAddGoalTopic(String name) {
+  return name != null && name.isNotEmpty;
+}
