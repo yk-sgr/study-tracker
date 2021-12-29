@@ -1,3 +1,4 @@
+import '../add_goal/add_goal_widget.dart';
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -57,8 +58,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       ),
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          print('FloatingActionButton pressed ...');
+        onPressed: () async {
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddGoalWidget(),
+            ),
+          );
         },
         backgroundColor: FlutterFlowTheme.primaryColor,
         elevation: 8,
