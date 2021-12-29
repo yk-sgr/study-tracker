@@ -1,3 +1,4 @@
+import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -130,7 +131,11 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
                                         children: [
                                           Text(
                                             listViewTopicsRecord.name,
-                                            style: FlutterFlowTheme.bodyText1,
+                                            style: FlutterFlowTheme.bodyText1
+                                                .override(
+                                              fontFamily: 'Open Sans',
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                           if (!(listViewTopicsRecord.done) ??
                                               true)
@@ -145,8 +150,14 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
                                                 color: Colors.black,
                                                 size: 30,
                                               ),
-                                              onPressed: () {
-                                                print('IconButton pressed ...');
+                                              onPressed: () async {
+                                                final topicsUpdateData =
+                                                    createTopicsRecordData(
+                                                  done: true,
+                                                );
+                                                await listViewTopicsRecord
+                                                    .reference
+                                                    .update(topicsUpdateData);
                                               },
                                             ),
                                           if (listViewTopicsRecord.done ?? true)
@@ -160,8 +171,14 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
                                                 color: Colors.black,
                                                 size: 30,
                                               ),
-                                              onPressed: () {
-                                                print('IconButton pressed ...');
+                                              onPressed: () async {
+                                                final topicsUpdateData =
+                                                    createTopicsRecordData(
+                                                  done: false,
+                                                );
+                                                await listViewTopicsRecord
+                                                    .reference
+                                                    .update(topicsUpdateData);
                                               },
                                             ),
                                         ],
