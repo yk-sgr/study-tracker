@@ -165,7 +165,10 @@ class _AddGoalWidgetState extends State<AddGoalWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                           child: Text(
-                            dateTimeFormat('d/M/y', datePicked),
+                            valueOrDefault<String>(
+                              dateTimeFormat('d/M/y', datePicked),
+                              'No Date Picked',
+                            ),
                             style: FlutterFlowTheme.bodyText1,
                           ),
                         ),
