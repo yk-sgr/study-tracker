@@ -55,7 +55,23 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
             );
           },
         ),
-        actions: [],
+        actions: [
+          FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 60,
+            icon: FaIcon(
+              FontAwesomeIcons.trash,
+              color: Color(0xFFB3B2B2),
+              size: 30,
+            ),
+            onPressed: () async {
+              await widget.goal.delete();
+              Navigator.pop(context);
+            },
+          ),
+        ],
         centerTitle: true,
         elevation: 0,
       ),
