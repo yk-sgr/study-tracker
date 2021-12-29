@@ -16,10 +16,11 @@ abstract class GoalsRecord implements Built<GoalsRecord, GoalsRecordBuilder> {
   DateTime get due;
 
   @nullable
-  String get createdBy;
+  String get description;
 
   @nullable
-  String get description;
+  @BuiltValueField(wireName: 'user_id')
+  String get userId;
 
   @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
@@ -27,8 +28,8 @@ abstract class GoalsRecord implements Built<GoalsRecord, GoalsRecordBuilder> {
 
   static void _initializeBuilder(GoalsRecordBuilder builder) => builder
     ..name = ''
-    ..createdBy = ''
-    ..description = '';
+    ..description = ''
+    ..userId = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('goals');
@@ -50,13 +51,13 @@ abstract class GoalsRecord implements Built<GoalsRecord, GoalsRecordBuilder> {
 Map<String, dynamic> createGoalsRecordData({
   String name,
   DateTime due,
-  String createdBy,
   String description,
+  String userId,
 }) =>
     serializers.toFirestore(
         GoalsRecord.serializer,
         GoalsRecord((g) => g
           ..name = name
           ..due = due
-          ..createdBy = createdBy
-          ..description = description));
+          ..description = description
+          ..userId = userId));
