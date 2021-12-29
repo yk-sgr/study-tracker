@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key key}) : super(key: key);
+  const HomePageWidget({required Key key}) : super(key: key);
 
   @override
   _HomePageWidgetState createState() => _HomePageWidgetState();
@@ -46,11 +46,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               await Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => LoginPageWidget(),
+                  builder: (context) => LoginPageWidget(key: Key('dopidoiadoiauwdo'),),
                 ),
                 (r) => false,
               );
-            },
+            }, key: Key('ddd'),
           ),
         ],
         centerTitle: true,
@@ -105,15 +105,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             ),
                           );
                         }
-                        List<GoalsRecord> listViewGoalsRecordList =
+                        List<GoalsRecord>? listViewGoalsRecordList =
                             snapshot.data;
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           scrollDirection: Axis.vertical,
-                          itemCount: listViewGoalsRecordList.length,
+                          itemCount: listViewGoalsRecordList?.length,
                           itemBuilder: (context, listViewIndex) {
                             final listViewGoalsRecord =
-                                listViewGoalsRecordList[listViewIndex];
+                                listViewGoalsRecordList![listViewIndex];
                             return Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
@@ -127,7 +127,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       reverseDuration:
                                           Duration(milliseconds: 300),
                                       child: GoalViewWidget(
-                                        goal: listViewGoalsRecord.reference,
+                                        goal: listViewGoalsRecord.reference, key: Key('d'),
                                       ),
                                     ),
                                   );

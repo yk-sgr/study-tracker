@@ -17,14 +17,14 @@ export 'schema/topics_record.dart';
 
 /// Functions to query GoalsRecords (as a Stream and as a Future).
 Stream<List<GoalsRecord>> queryGoalsRecord(
-        {Query Function(Query) queryBuilder,
+        {required Query Function(Query) queryBuilder,
         int limit = -1,
         bool singleRecord = false}) =>
     queryCollection(GoalsRecord.collection, GoalsRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
 Future<List<GoalsRecord>> queryGoalsRecordOnce(
-        {Query Function(Query) queryBuilder,
+        {required Query Function(Query) queryBuilder,
         int limit = -1,
         bool singleRecord = false}) =>
     queryCollectionOnce(GoalsRecord.collection, GoalsRecord.serializer,
@@ -32,14 +32,14 @@ Future<List<GoalsRecord>> queryGoalsRecordOnce(
 
 /// Functions to query TopicsRecords (as a Stream and as a Future).
 Stream<List<TopicsRecord>> queryTopicsRecord(
-        {Query Function(Query) queryBuilder,
+        {required Query Function(Query) queryBuilder,
         int limit = -1,
         bool singleRecord = false}) =>
     queryCollection(TopicsRecord.collection, TopicsRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
 Future<List<TopicsRecord>> queryTopicsRecordOnce(
-        {Query Function(Query) queryBuilder,
+        {required Query Function(Query) queryBuilder,
         int limit = -1,
         bool singleRecord = false}) =>
     queryCollectionOnce(TopicsRecord.collection, TopicsRecord.serializer,
@@ -47,7 +47,7 @@ Future<List<TopicsRecord>> queryTopicsRecordOnce(
 
 Stream<List<T>> queryCollection<T>(
     CollectionReference collection, Serializer<T> serializer,
-    {Query Function(Query) queryBuilder,
+    {required Query Function(Query) queryBuilder,
     int limit = -1,
     bool singleRecord = false}) {
   final builder = queryBuilder ?? (q) => q;
@@ -68,7 +68,7 @@ Stream<List<T>> queryCollection<T>(
 
 Future<List<T>> queryCollectionOnce<T>(
     CollectionReference collection, Serializer<T> serializer,
-    {Query Function(Query) queryBuilder,
+    {required Query Function(Query) queryBuilder,
     int limit = -1,
     bool singleRecord = false}) {
   final builder = queryBuilder ?? (q) => q;

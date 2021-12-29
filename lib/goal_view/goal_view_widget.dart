@@ -12,8 +12,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class GoalViewWidget extends StatefulWidget {
   const GoalViewWidget({
-    Key key,
-    this.goal,
+    required Key key,
+    required this.goal,
   }) : super(key: key);
 
   final DocumentReference goal;
@@ -50,7 +50,7 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
             }
             final textGoalsRecord = snapshot.data;
             return Text(
-              textGoalsRecord.name,
+              textGoalsRecord?.name ?? '',
               style: FlutterFlowTheme.title1,
             );
           },
@@ -69,7 +69,7 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
             onPressed: () async {
               await widget.goal.delete();
               Navigator.pop(context);
-            },
+            }, key: Key('iopawud0aowidujaiowdjk'),
           ),
         ],
         centerTitle: true,
@@ -129,15 +129,15 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
                             ),
                           );
                         }
-                        List<TopicsRecord> listViewTopicsRecordList =
+                        List<TopicsRecord>? listViewTopicsRecordList =
                             snapshot.data;
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           scrollDirection: Axis.vertical,
-                          itemCount: listViewTopicsRecordList.length,
+                          itemCount: listViewTopicsRecordList?.length,
                           itemBuilder: (context, listViewIndex) {
                             final listViewTopicsRecord =
-                                listViewTopicsRecordList[listViewIndex];
+                                listViewTopicsRecordList![listViewIndex];
                             return Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
@@ -185,7 +185,7 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
                                                 await listViewTopicsRecord
                                                     .reference
                                                     .delete();
-                                              },
+                                              }, key: Key('djikojoiawdawdawdaw'),
                                             ),
                                           ),
                                           Text(
@@ -217,7 +217,7 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
                                             );
                                             await listViewTopicsRecord.reference
                                                 .update(topicsUpdateData);
-                                          },
+                                          }, key: Key('piou09qwdiqaw09pdia0pdiok'),
                                         ),
                                       if (listViewTopicsRecord.done ?? true)
                                         FlutterFlowIconButton(
@@ -237,7 +237,7 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
                                             );
                                             await listViewTopicsRecord.reference
                                                 .update(topicsUpdateData);
-                                          },
+                                          }, key: Key('oöJHxciuhdodaw0awdp'),
                                         ),
                                     ],
                                   ),

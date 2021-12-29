@@ -4,12 +4,12 @@ import 'package:auto_size_text/auto_size_text.dart';
 
 class FFButtonOptions {
   const FFButtonOptions({
-    this.textStyle,
+    required this.textStyle,
     this.elevation,
     this.height,
     this.width,
     this.padding,
-    this.color,
+    required this.color,
     this.disabledColor,
     this.disabledTextColor,
     this.splashColor,
@@ -21,36 +21,36 @@ class FFButtonOptions {
   });
 
   final TextStyle textStyle;
-  final double elevation;
-  final double height;
-  final double width;
-  final EdgeInsetsGeometry padding;
+  final double? elevation;
+  final double? height;
+  final double? width;
+  final EdgeInsetsGeometry? padding;
   final Color color;
-  final Color disabledColor;
-  final Color disabledTextColor;
-  final Color splashColor;
-  final double iconSize;
-  final Color iconColor;
-  final EdgeInsetsGeometry iconPadding;
-  final double borderRadius;
-  final BorderSide borderSide;
+  final Color? disabledColor;
+  final Color? disabledTextColor;
+  final Color? splashColor;
+  final double? iconSize;
+  final Color? iconColor;
+  final EdgeInsetsGeometry? iconPadding;
+  final double? borderRadius;
+  final BorderSide? borderSide;
 }
 
 class FFButtonWidget extends StatefulWidget {
   const FFButtonWidget({
-    Key key,
-    @required this.text,
-    @required this.onPressed,
+    Key? key,
+    required this.text,
+    required this.onPressed,
     this.icon,
     this.iconData,
-    @required this.options,
+    required this.options,
     this.showLoadingIndicator = true,
   }) : super(key: key);
 
-  final String text;
-  final Widget icon;
-  final IconData iconData;
-  final Function() onPressed;
+  final String? text;
+  final Widget? icon;
+  final IconData? iconData;
+  final Function()? onPressed;
   final FFButtonOptions options;
   final bool showLoadingIndicator;
 
@@ -70,14 +70,14 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
               height: 23,
               child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(
-                  widget.options.textStyle.color ?? Colors.white,
+                  widget.options?.textStyle?.color ?? Colors.white,
                 ),
               ),
             ),
           )
         : AutoSizeText(
-            widget.text,
-            style: widget.options.textStyle,
+            widget.text ?? '',
+            style: widget.options?.textStyle,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           );
@@ -89,37 +89,37 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
             }
             setState(() => loading = true);
             try {
-              await widget.onPressed();
+              await widget.onPressed!();
             } catch (e) {
               print('On pressed error:\n$e');
             }
             setState(() => loading = false);
           }
-        : () => widget.onPressed();
+        : () => widget.onPressed!();
 
     if (widget.icon != null || widget.iconData != null) {
       textWidget = Flexible(child: textWidget);
       return Container(
-        height: widget.options.height,
-        width: widget.options.width,
+        height: widget.options?.height,
+        width: widget.options?.width,
         child: RaisedButton.icon(
           icon: Padding(
-            padding: widget.options.iconPadding ?? EdgeInsets.zero,
+            padding: widget.options?.iconPadding ?? EdgeInsets.zero,
             child: widget.icon ??
                 FaIcon(
                   widget.iconData,
-                  size: widget.options.iconSize,
-                  color: widget.options.iconColor ??
-                      widget.options.textStyle.color,
+                  size: widget.options?.iconSize,
+                  color: widget.options?.iconColor ??
+                      widget.options?.textStyle?.color,
                 ),
           ),
           label: textWidget,
           onPressed: onPressed,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(widget.options.borderRadius),
+            borderRadius: BorderRadius.circular(widget.options?.borderRadius ?? 0),
             side: widget.options.borderSide ?? BorderSide.none,
           ),
-          color: widget.options.color,
+          color: widget.options?.color,
           colorBrightness:
               ThemeData.estimateBrightnessForColor(widget.options.color),
           textColor: widget.options.textStyle.color,

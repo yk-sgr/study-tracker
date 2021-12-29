@@ -8,7 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPageWidget extends StatefulWidget {
-  const LoginPageWidget({Key key}) : super(key: key);
+  const LoginPageWidget({required Key key}) : super(key: key);
 
   @override
   _LoginPageWidgetState createState() => _LoginPageWidgetState();
@@ -34,7 +34,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
             children: [
               Spacer(),
               SvgPicture.asset(
-                'assets/images/undraw_studying_re_deca_(2).svg',
+                'assets/images/login_page_illustration.svg',
                 width: MediaQuery.of(context).size.width * 0.8,
                 height: 300,
                 fit: BoxFit.cover,
@@ -65,7 +65,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             await Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomePageWidget(),
+                                builder: (context) => HomePageWidget(key: Key('cbaibcdaiudhaodiu'),),
                               ),
                               (r) => false,
                             );
@@ -120,7 +120,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     await Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomePageWidget(),
+                        builder: (context) => HomePageWidget(key: Key('poipaodiapwodiapodiapodipoai'),),
                       ),
                       (r) => false,
                     );
