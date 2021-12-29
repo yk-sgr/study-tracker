@@ -75,10 +75,9 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
                   Expanded(
                     child: StreamBuilder<List<TopicsRecord>>(
                       stream: queryTopicsRecord(
-                        queryBuilder: (topicsRecord) => topicsRecord
-                            .where('goal_id',
-                                isEqualTo: functions.idFromGoal(widget.goal))
-                            .orderBy('done'),
+                        queryBuilder: (topicsRecord) => topicsRecord.where(
+                            'goal_id',
+                            isEqualTo: functions.idFromGoal(widget.goal)),
                       ),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
