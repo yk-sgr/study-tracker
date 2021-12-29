@@ -40,7 +40,24 @@
       });
     }
   </script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   
+  
+
+  <script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyARSEPgI5zQiGmjh0T2Fl1qJvVYCIrBoRg",
+    authDomain: "study-progress-tracker.firebaseapp.com",
+    projectId: "study-progress-tracker",
+    storageBucket: "study-progress-tracker.appspot.com",
+    messagingSenderId: "690484785173",
+    appId: "1:690484785173:web:70673b0b0d627f79c29e1c",
+    measurementId: "G-X1QHNFTGE2"
+  }
+    firebase.initializeApp(firebaseConfig);
+  </script>
   
   <script src="main.dart.js" type="application/javascript"></script>
 </body>
