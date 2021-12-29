@@ -1,3 +1,4 @@
+import '../add_goal_topic/add_goal_topic_widget.dart';
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -58,6 +59,24 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
         elevation: 0,
       ),
       backgroundColor: Colors.white,
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () async {
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddGoalTopicWidget(
+                goal: widget.goal,
+              ),
+            ),
+          );
+        },
+        backgroundColor: FlutterFlowTheme.primaryColor,
+        elevation: 8,
+        label: Text(
+          'Add Topic',
+          style: FlutterFlowTheme.bodyText1,
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
