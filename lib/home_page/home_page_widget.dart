@@ -104,8 +104,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 onTap: () async {
                                   await Navigator.push(
                                     context,
-                                    MaterialPageRoute(
-                                      builder: (context) => GoalViewWidget(
+                                    PageTransition(
+                                      type: PageTransitionType.leftToRight,
+                                      duration: Duration(milliseconds: 300),
+                                      reverseDuration:
+                                          Duration(milliseconds: 300),
+                                      child: GoalViewWidget(
                                         goal: listViewGoalsRecord.reference,
                                       ),
                                     ),
