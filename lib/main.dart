@@ -47,12 +47,15 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: const [Locale('en', '')],
       theme: ThemeData(primarySwatch: Colors.blue),
       home: initialUser == null || displaySplashImage
-          ? const Center(
-              child: SizedBox(
-                width: 50,
-                height: 50,
-                child: CircularProgressIndicator(
-                  color: Color(0xFF93C3C0),
+          ? Container(
+              color: Colors.transparent,
+              child: Center(
+                child: Builder(
+                  builder: (context) => Image.asset(
+                    'assets/images/Logo_-_NoBg.svg',
+                    width: MediaQuery.of(context).size.width * 0.75,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             )
