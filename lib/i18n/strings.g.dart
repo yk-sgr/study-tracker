@@ -3,9 +3,9 @@
  * Generated file. Do not edit.
  *
  * Locales: 1
- * Strings: 1 
+ * Strings: 8 
  *
- * Built on 2021-12-29 at 22:11 UTC
+ * Built on 2021-12-30 at 00:44 UTC
  */
 
 import 'package:flutter/widgets.dart';
@@ -256,9 +256,40 @@ class _StringsEn {
 	static final _StringsEn _instance = _StringsEn._();
 
 	String get appName => 'Study Progress Tracker';
+	String get appNameShort => 'Study Tracker';
+	String get dateformat => 'MM/dd/yyyy';
+	_StringsLoginPageEn get login_page => _StringsLoginPageEn._instance;
+	_StringsHomePageEn get home_page => _StringsHomePageEn._instance;
+	_StringsAddGoalPageEn get add_goal_page => _StringsAddGoalPageEn._instance;
 
 	/// A flat map containing all translations.
 	dynamic operator[](String key) => _translationMapEn[key];
+}
+
+class _StringsLoginPageEn {
+	_StringsLoginPageEn._(); // no constructor
+
+	static final _StringsLoginPageEn _instance = _StringsLoginPageEn._();
+
+	String get google_button => 'Sign in with Google';
+	String get anonymous_button => 'Continue without account';
+}
+
+class _StringsHomePageEn {
+	_StringsHomePageEn._(); // no constructor
+
+	static final _StringsHomePageEn _instance = _StringsHomePageEn._();
+
+	String get fab => 'Add Goal';
+	String get no_goals => 'No Goals.';
+}
+
+class _StringsAddGoalPageEn {
+	_StringsAddGoalPageEn._(); // no constructor
+
+	static final _StringsAddGoalPageEn _instance = _StringsAddGoalPageEn._();
+
+	String get title => 'Add Goal';
 }
 
 /// Flat map(s) containing all translations.
@@ -266,4 +297,11 @@ class _StringsEn {
 
 late final Map<String, dynamic> _translationMapEn = {
 	'appName': 'Study Progress Tracker',
+	'appNameShort': 'Study Tracker',
+	'dateformat': 'MM/dd/yyyy',
+	'login_page.google_button': 'Sign in with Google',
+	'login_page.anonymous_button': 'Continue without account',
+	'home_page.fab': 'Add Goal',
+	'home_page.no_goals': 'No Goals.',
+	'add_goal_page.title': 'Add Goal',
 };

@@ -56,7 +56,7 @@ class LoginPage extends StatelessWidget {
         context.vRouter.to(HomePage.path);
       },
       child: Text(
-        'Continue without account',
+        t.login_page.anonymous_button,
         style: Theme.of(context).textTheme.subtitle2,
       ),
     );
@@ -85,8 +85,8 @@ class LoginPage extends StatelessWidget {
             Positioned.fill(
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Image.network(
-                  'https://i0.wp.com/nanophorm.com/wp-content/uploads/2018/04/google-logo-icon-PNG-Transparent-Background.png?w=1000&ssl=1',
+                child: Image.asset(
+                  'assets/images/google-logo.png',
                   fit: BoxFit.contain,
                 ),
               ),
@@ -95,7 +95,7 @@ class LoginPage extends StatelessWidget {
               child: Align(
                 alignment: Alignment.center,
                 child: Text(
-                  'Sign in with Google',
+                  t.login_page.google_button,
                   style: Theme.of(context).textTheme.subtitle2,
                 ),
               ),

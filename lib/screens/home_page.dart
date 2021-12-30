@@ -1,22 +1,119 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:study_tracker/screens/login_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:study_tracker/flutter_flow/flutter_flow_util.dart';
+import 'package:study_tracker/i18n/strings.g.dart';
+import 'package:study_tracker/provider/goals_provider.dart';
+import 'package:study_tracker/screens/add_goal_page.dart';
+import 'package:study_tracker/theme/app_theme.dart';
 import 'package:vrouter/vrouter.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   static String path = '/';
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      body: SafeArea(
-        child: ElevatedButton(
-          onPressed: () async {
-            await FirebaseAuth.instance.signOut();
-            context.vRouter.to(LoginPage.path);
-          },
-          child: Text('Sign Out'),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Text(t.appNameShort),
         ),
+        floatingActionButton: _fab(context),
+        body: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(child: _goalList(context, ref)),
+              ],
+            ),
+          ),
+        ));
+  }
+
+  Widget _goalList(BuildContext context, WidgetRef ref) {
+    final goals = ref.watch(goalsProvider).value;
+    if (goals == null) {
+      return SizedBox(
+        width: 35,
+        height: 35,
+        child: CircularProgressIndicator(
+          color: AppTheme.secondaryColor,
+        ),
+      );
+    }
+    if (goals.isEmpty) {
+      return Text(t.home_page.no_goals,
+          style: Theme.of(context).textTheme.bodyText1);
+    }
+    return ListView.builder(
+      itemCount: goals.length,
+      itemBuilder: (context, index) {
+        final goal = goals[index];
+        return Padding(
+          padding: EdgeInsets.only(bottom: 15),
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: AppTheme.primaryColor,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+              ),
+              onPressed: () async {},
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          goal.name,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1
+                              ?.copyWith(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          DateFormat(t.dateformat)
+                              .format(DateTime.parse(goal.due)),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1
+                              ?.copyWith(fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 10),
+                      child: Text(
+                        goal.description,
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _fab(BuildContext context) {
+    return FloatingActionButton.extended(
+      onPressed: () {
+        context.vRouter.to(AddGoalPage.path);
+      },
+      label: Text(
+        t.home_page.fab,
+        style: Theme.of(context).textTheme.bodyText1,
       ),
     );
   }

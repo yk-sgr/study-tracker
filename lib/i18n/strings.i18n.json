@@ -1,3 +1,16 @@
 {
-  "appName": "Study Progress Tracker"
+  "appName": "Study Progress Tracker",
+  "appNameShort": "Study Tracker",
+  "dateformat": "MM/dd/yyyy",
+  "login_page": {
+    "google_button": "Sign in with Google",
+    "anonymous_button": "Continue without account"
+  },
+  "home_page": {
+    "fab": "Add Goal",
+    "no_goals": "No Goals."
+  },
+  "add_goal_page": {
+    "title": "Add Goal"
+  }
 }

@@ -3,10 +3,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:study_tracker/i18n/strings.g.dart';
+import 'package:study_tracker/screens/add_goal_page.dart';
 import 'package:study_tracker/screens/home_page.dart';
 import 'package:study_tracker/screens/login_page.dart';
 import 'package:study_tracker/theme/app_theme.dart';
 import 'package:vrouter/vrouter.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,7 +16,7 @@ void main() async {
   await Firebase.initializeApp();
 
   runApp(
-    TranslationProvider(child: App()),
+    TranslationProvider(child: ProviderScope(child: App())),
   );
 }
 
@@ -36,8 +38,10 @@ class App extends StatelessWidget {
         }
       },
       routes: [
-        VWidget(path: HomePage.path, widget: HomePage()),
-        VWidget(path: LoginPage.path, widget: LoginPage())
+        VWidget(path: LoginPage.path, widget: LoginPage()),
+        VWidget(path: HomePage.path, widget: HomePage(), stackedRoutes: [
+          VWidget(path: AddGoalPage.path, widget: AddGoalPage())
+        ]),
       ],
     );
   }

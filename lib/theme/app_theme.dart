@@ -7,16 +7,31 @@ class AppTheme {
   static const Color tertiaryColor = Color(0xFFFFFFFF);
   static const Color darkTextColor = Color(0xFF303030);
 
+  static TextStyle headline1 = GoogleFonts.openSans(
+    fontSize: 24,
+    color: darkTextColor,
+    fontWeight: FontWeight.w600,
+  );
+  static TextStyle headline2 = GoogleFonts.openSans(
+    fontSize: 22,
+    color: darkTextColor,
+    fontWeight: FontWeight.w600,
+  );
+
   static ThemeData lightTheme = ThemeData.light().copyWith(
-    appBarTheme: AppBarTheme(color: primaryColor),
-    textTheme: TextTheme(
-      bodyText1: GoogleFonts.openSans(fontSize: 14, color: darkTextColor),
-      subtitle2: GoogleFonts.openSans(fontSize: 16, color: darkTextColor),
-      headline1: GoogleFonts.openSans(
-        fontSize: 24,
-        color: darkTextColor,
-        fontWeight: FontWeight.w600,
-      ),
+    scaffoldBackgroundColor: tertiaryColor,
+    appBarTheme: AppBarTheme(
+        color: primaryColor,
+        foregroundColor: darkTextColor,
+        elevation: 0,
+        centerTitle: true,
+        titleTextStyle: headline2),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: secondaryColor,
     ),
+    textTheme: TextTheme(
+        bodyText1: GoogleFonts.openSans(fontSize: 14, color: darkTextColor),
+        subtitle2: GoogleFonts.openSans(fontSize: 16, color: darkTextColor),
+        headline1: headline1),
   );
 }
