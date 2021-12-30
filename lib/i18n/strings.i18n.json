@@ -11,6 +11,16 @@
     "no_goals": "No Goals."
   },
   "add_goal_page": {
-    "title": "Add Goal"
+    "title": "Add Goal",
+    "name": "Name",
+    "description": "Description",
+    "select_date": "Select Date",
+    "no_date": "No date picked",
+    "add_goal": "Add Goal",
+    "name_empty": "Name cannot be empty",
+    "description_empty": "Description cannot be empty",
+    "date_empty": "Date cannot be empty",
+    "not_logged_in": "You have to login first",
+    "error": "An error occurred"
   }
 }

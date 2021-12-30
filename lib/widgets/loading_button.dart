@@ -34,7 +34,7 @@ class _LoadingButtonState extends State<LoadingButton> {
               primary: widget.background,
               elevation: 1,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(20),
               )
             ),
             onPressed: () async {

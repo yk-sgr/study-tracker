@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:study_tracker/flutter_flow/flutter_flow_util.dart';
+import 'package:jiffy/jiffy.dart';
 import 'package:study_tracker/i18n/strings.g.dart';
 import 'package:study_tracker/provider/goals_provider.dart';
 import 'package:study_tracker/screens/add_goal_page.dart';
@@ -58,6 +58,7 @@ class HomePage extends ConsumerWidget {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: AppTheme.primaryColor,
+                splashFactory: InkRipple.splashFactory,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
@@ -80,8 +81,7 @@ class HomePage extends ConsumerWidget {
                                   fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          DateFormat(t.dateformat)
-                              .format(DateTime.parse(goal.due)),
+                          Jiffy(DateTime.parse(goal.due)).format(t.dateformat),
                           style: Theme.of(context)
                               .textTheme
                               .bodyText1

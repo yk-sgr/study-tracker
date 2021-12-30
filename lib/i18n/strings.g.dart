@@ -3,9 +3,9 @@
  * Generated file. Do not edit.
  *
  * Locales: 1
- * Strings: 8 
+ * Strings: 18 
  *
- * Built on 2021-12-30 at 00:44 UTC
+ * Built on 2021-12-30 at 02:19 UTC
  */
 
 import 'package:flutter/widgets.dart';
@@ -290,6 +290,16 @@ class _StringsAddGoalPageEn {
 	static final _StringsAddGoalPageEn _instance = _StringsAddGoalPageEn._();
 
 	String get title => 'Add Goal';
+	String get name => 'Name';
+	String get description => 'Description';
+	String get select_date => 'Select Date';
+	String get no_date => 'No date picked';
+	String get add_goal => 'Add Goal';
+	String get name_empty => 'Name cannot be empty';
+	String get description_empty => 'Description cannot be empty';
+	String get date_empty => 'Date cannot be empty';
+	String get not_logged_in => 'You have to login first';
+	String get error => 'An error occurred';
 }
 
 /// Flat map(s) containing all translations.
@@ -304,4 +314,14 @@ late final Map<String, dynamic> _translationMapEn = {
 	'home_page.fab': 'Add Goal',
 	'home_page.no_goals': 'No Goals.',
 	'add_goal_page.title': 'Add Goal',
+	'add_goal_page.name': 'Name',
+	'add_goal_page.description': 'Description',
+	'add_goal_page.select_date': 'Select Date',
+	'add_goal_page.no_date': 'No date picked',
+	'add_goal_page.add_goal': 'Add Goal',
+	'add_goal_page.name_empty': 'Name cannot be empty',
+	'add_goal_page.description_empty': 'Description cannot be empty',
+	'add_goal_page.date_empty': 'Date cannot be empty',
+	'add_goal_page.not_logged_in': 'You have to login first',
+	'add_goal_page.error': 'An error occurred',
 };

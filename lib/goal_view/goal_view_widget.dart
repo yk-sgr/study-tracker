@@ -1,3 +1,4 @@
+/*
 import '../add_goal_topic/add_goal_topic_widget.dart';
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
@@ -258,3 +259,4 @@ class _GoalViewWidgetState extends State<GoalViewWidget> {
     );
   }
 }
+*/

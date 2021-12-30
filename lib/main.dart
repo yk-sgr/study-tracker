@@ -40,7 +40,7 @@ class App extends StatelessWidget {
       routes: [
         VWidget(path: LoginPage.path, widget: LoginPage()),
         VWidget(path: HomePage.path, widget: HomePage(), stackedRoutes: [
-          VWidget(path: AddGoalPage.path, widget: AddGoalPage())
+          VWidget(path: AddGoalPage.path, widget: AddGoalPage(key: Key('add_goal_page'),))
         ]),
       ],
     );
