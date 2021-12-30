@@ -4,7 +4,8 @@
   "dateformat": "MM/dd/yyyy",
   "login_page": {
     "google_button": "Sign in with Google",
-    "anonymous_button": "Continue without account"
+    "anonymous_button": "Continue without account",
+    "error": "Could not log in"
   },
   "home_page": {
     "fab": "Add Goal",

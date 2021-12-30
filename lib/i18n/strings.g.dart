@@ -3,9 +3,9 @@
  * Generated file. Do not edit.
  *
  * Locales: 1
- * Strings: 18 
+ * Strings: 19 
  *
- * Built on 2021-12-30 at 02:19 UTC
+ * Built on 2021-12-30 at 02:30 UTC
  */
 
 import 'package:flutter/widgets.dart';
@@ -273,6 +273,7 @@ class _StringsLoginPageEn {
 
 	String get google_button => 'Sign in with Google';
 	String get anonymous_button => 'Continue without account';
+	String get error => 'Could not log in';
 }
 
 class _StringsHomePageEn {
@@ -311,6 +312,7 @@ late final Map<String, dynamic> _translationMapEn = {
 	'dateformat': 'MM/dd/yyyy',
 	'login_page.google_button': 'Sign in with Google',
 	'login_page.anonymous_button': 'Continue without account',
+	'login_page.error': 'Could not log in',
 	'home_page.fab': 'Add Goal',
 	'home_page.no_goals': 'No Goals.',
 	'add_goal_page.title': 'Add Goal',

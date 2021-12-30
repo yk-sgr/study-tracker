@@ -47,6 +47,7 @@ class GoalService {
       Fluttertoast.showToast(msg: t.add_goal_page.not_logged_in);
       return null;
     }
+
     try {
       await FirebaseFirestore.instance.collection('goals').add(
           Goal(name, due.toIso8601String(), description, user.uid).toJson());

@@ -1,17 +1,15 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:study_tracker/i18n/strings.g.dart';
-import 'package:study_tracker/screens/home_page.dart';
+import 'package:study_tracker/provider/user_provider.dart';
 import 'package:study_tracker/widgets/loading_button.dart';
-import 'package:vrouter/vrouter.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends ConsumerWidget {
   static String path = '/auth/login';
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: SafeArea(
         child: SizedBox(
@@ -36,8 +34,8 @@ class LoginPage extends StatelessWidget {
               Spacer(
                 flex: 2,
               ),
-              _googleSignInButton(context),
-              _anonymousSignInButton(context),
+              _googleSignInButton(context, ref),
+              _anonymousSignInButton(context, ref),
               Spacer(
                 flex: 2,
               ),
@@ -48,12 +46,10 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _anonymousSignInButton(BuildContext context) {
+  Widget _anonymousSignInButton(BuildContext context, WidgetRef ref) {
     return TextButton(
       onPressed: () async {
-        //TODO: Extract to provider
-        await FirebaseAuth.instance.signInAnonymously();
-        context.vRouter.to(HomePage.path);
+        ref.read(userServiceProvider).signInAnonymous(context);
       },
       child: Text(
         t.login_page.anonymous_button,
@@ -62,21 +58,13 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _googleSignInButton(BuildContext context) {
+  Widget _googleSignInButton(BuildContext context, WidgetRef ref) {
     return LoadingButton(
       width: MediaQuery.of(context).size.width * 0.8,
       height: 50,
       background: Colors.white,
       onPressed: () async {
-        //TODO: Extract to provider
-        final googleUser = await GoogleSignIn().signIn();
-        final googleAuth = await googleUser?.authentication;
-
-        final credential = GoogleAuthProvider.credential(
-            accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
-
-        await FirebaseAuth.instance.signInWithCredential(credential);
-        context.vRouter.to(HomePage.path);
+        ref.read(userServiceProvider).signInWithGoogle(context);
       },
       child: Padding(
         padding: const EdgeInsets.only(top: 10, bottom: 10),
