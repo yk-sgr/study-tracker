@@ -33,10 +33,17 @@
 		</dict>
 	</array>
 
+	<key>CFBundleLocalizations</key>
+    <array>
+       <string>en</string>
+       <string>de</string>
+    </array>
+
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+
 
 
 

@@ -1,4 +1,4 @@
-import '../auth/auth_util.dart';
+/*import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -98,13 +98,19 @@ class _AddGoalTopicWidgetState extends State<AddGoalTopicWidget> {
                   ),
                   FFButtonWidget(
                     onPressed: () async {
-                      final topicsCreateData = createTopicsRecordData(
-                        userId: currentUserUid,
-                        name: textController.text,
-                        done: false,
-                        goalId: functions.idFromGoal(widget.goal),
-                      );
-                      await TopicsRecord.collection.doc().set(topicsCreateData);
+                      if (functions.validateAddGoalTopic(textController.text)) {
+                        final topicsCreateData = createTopicsRecordData(
+                          userId: currentUserUid,
+                          name: textController.text,
+                          done: false,
+                          goalId: functions.idFromGoal(widget.goal),
+                        );
+                        await TopicsRecord.collection
+                            .doc()
+                            .set(topicsCreateData);
+                      } else {
+                        return;
+                      }
                       Navigator.pop(context);
                     },
                     text: 'Add Goal',
@@ -135,3 +141,4 @@ class _AddGoalTopicWidgetState extends State<AddGoalTopicWidget> {
     );
   }
 }
+*/
