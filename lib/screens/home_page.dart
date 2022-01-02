@@ -70,38 +70,68 @@ class HomePage extends ConsumerWidget {
                       .to("${GoalViewPage.pathNoParameters}${goal.id}");
                 },
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  padding: EdgeInsets.only(top: 15, bottom: 15, right: 20),
+                  child: Row(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            goal.name,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1
-                                ?.copyWith(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            Jiffy(DateTime.parse(goal.due))
-                                .format(t.dateformat),
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1
-                                ?.copyWith(fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      ),
                       Padding(
-                        padding: EdgeInsets.only(top: 10),
-                        child: Text(
-                          goal.description,
-                          style: Theme.of(context).textTheme.bodyText1,
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              width: 2,
+                              color: AppTheme.darkTextColor,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Text(
+                              '${goal.tasks.where((t) => t.done).length}/${goal.tasks.length}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1
+                                  ?.copyWith(fontWeight: FontWeight.bold),
+                            ),
+                          ),
                         ),
-                      )
+                      ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  goal.name,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1
+                                      ?.copyWith(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  Jiffy(DateTime.parse(goal.due))
+                                      .format(t.dateformat),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1
+                                      ?.copyWith(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 10),
+                              child: Text(
+                                goal.description,
+                                style: Theme.of(context).textTheme.bodyText1,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
