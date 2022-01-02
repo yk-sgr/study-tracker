@@ -11,16 +11,40 @@ import 'package:vrouter/vrouter.dart';
 final goalsProvider = StreamProvider.autoDispose<List<Goal>>((ref) {
   final user = ref.watch(userProvider).value;
   if (user == null) return Stream.empty();
-  return FirebaseFirestore.instance
-      .collection('goals')
-      .where('user_id', isEqualTo: user.uid)
-      .orderBy('due')
-      .snapshots()
-      .map((data) => data.docs.map((doc) => Goal.fromJson(doc.data())))
-      .map((list) => list.toList());
+
+  try {
+    return FirebaseFirestore.instance
+        .collection('goals')
+        .where('user_id', isEqualTo: user.uid)
+        .orderBy('due')
+        .snapshots()
+        .map((data) => data.docs.map((doc) {
+              final g = Goal.fromJson(doc.data());
+              g.id = doc.id;
+              return g;
+            }))
+        .map((list) => list.toList());
+  } catch (error, stacktrace) {
+    debugPrint(error.toString());
+    debugPrintStack(stackTrace: stacktrace);
+    Fluttertoast.showToast(msg: t.home_page.error_loading_goals);
+    return Stream.empty();
+  }
 });
 
-final goalsServiceProvider = Provider((ref) => GoalService(ref.read));
+final goalProvider = FutureProvider.family<Goal?, String>((ref, id) async {
+  final user = ref.watch(userProvider).value;
+  if (user == null) return null;
+  final doc =
+      await FirebaseFirestore.instance.collection('goals').doc(id).get();
+  final data = doc.data();
+  if (data == null) return null;
+  Goal goal = Goal.fromJson(data);
+  goal.id = doc.id;
+  return goal;
+});
+
+final goalServiceProvider = Provider((ref) => GoalService(ref.read));
 
 class GoalService {
   final Reader _read;
@@ -30,30 +54,62 @@ class GoalService {
   void createGoal(BuildContext context, String name, String description,
       DateTime? due) async {
     if (name.isEmpty) {
-      Fluttertoast.showToast(msg: t.add_goal_page.name_empty);
+      Fluttertoast.showToast(msg: t.add_goal_page.error_name_empty);
       return null;
     }
     if (description.isEmpty) {
-      Fluttertoast.showToast(msg: t.add_goal_page.description_empty);
+      Fluttertoast.showToast(msg: t.add_goal_page.error_description_empty);
       return null;
     }
     if (due == null) {
-      Fluttertoast.showToast(msg: t.add_goal_page.date_empty);
+      Fluttertoast.showToast(msg: t.add_goal_page.error_date_empty);
       return null;
     }
 
     final user = _read(userProvider).value;
     if (user == null) {
-      Fluttertoast.showToast(msg: t.add_goal_page.not_logged_in);
+      Fluttertoast.showToast(msg: t.add_goal_page.error_not_logged_in);
       return null;
     }
 
     try {
       await FirebaseFirestore.instance.collection('goals').add(
-          Goal(name, due.toIso8601String(), description, user.uid).toJson());
+          Goal(name, due.toIso8601String(), description, user.uid, [])
+              .toJson());
       context.vRouter.to(HomePage.path);
-    } catch (error) {
-      Fluttertoast.showToast(msg: t.add_goal_page.error);
+    } catch (error, stacktrace) {
+      debugPrint(error.toString());
+      debugPrintStack(stackTrace: stacktrace);
+      Fluttertoast.showToast(msg: t.add_goal_page.error_general);
+    }
+  }
+
+  Future updateGoal(Goal goal) async {
+    final user = _read(userProvider).value;
+    if (user == null) {
+      Fluttertoast.showToast(msg: t.add_goal_page.error_not_logged_in);
+      return null;
+    }
+    try {
+      await FirebaseFirestore.instance
+          .collection('goals')
+          .doc(goal.id)
+          .update(goal.toJson());
+    } catch (error, stacktrace) {
+      debugPrint(error.toString());
+      debugPrintStack(stackTrace: stacktrace);
+      Fluttertoast.showToast(msg: t.add_goal_page.error_general);
+    }
+  }
+
+  void deleteGoal(BuildContext context, String goalId) async {
+    try {
+      await FirebaseFirestore.instance.collection('goals').doc(goalId).delete();
+      context.vRouter.to(HomePage.path);
+    } catch (error, stacktrace) {
+      debugPrint(error.toString());
+      debugPrintStack(stackTrace: stacktrace);
+      Fluttertoast.showToast(msg: t.goal_view_page.failed_deleting);
     }
   }
 }

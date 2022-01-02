@@ -10,6 +10,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:study_tracker/i18n/strings.g.dart';
 import 'package:study_tracker/screens/add_goal_page.dart';
+import 'package:study_tracker/screens/add_task_page.dart';
+import 'package:study_tracker/screens/goal_view.dart';
 import 'package:study_tracker/screens/home_page.dart';
 import 'package:study_tracker/screens/login_page.dart';
 import 'package:study_tracker/theme/app_theme.dart';
@@ -57,11 +59,20 @@ class App extends StatelessWidget {
       routes: [
         VWidget(path: LoginPage.path, widget: LoginPage()),
         VWidget(path: HomePage.path, widget: HomePage(), stackedRoutes: [
+          VWidget(path: GoalViewPage.path, widget: GoalViewPage()),
           VWidget(
               path: AddGoalPage.path,
               widget: AddGoalPage(
                 key: Key('add_goal_page'),
-              ))
+              ),
+              stackedRoutes: [
+                VWidget(
+                  path: AddTaskPage.path,
+                  widget: AddTaskPage(
+                    key: Key('add_task_page'),
+                  ),
+                ),
+              ]),
         ]),
       ],
     );

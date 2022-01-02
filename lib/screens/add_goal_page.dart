@@ -35,12 +35,13 @@ class _AddGoalPageState extends ConsumerState<AddGoalPage> {
           child: Column(
             children: [
               TextInput(
-                  controller: _nameController, hintText: t.add_goal_page.name),
+                  controller: _nameController,
+                  hintText: t.add_goal_page.input_name),
               Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child: TextInput(
                     controller: _descriptionController,
-                    hintText: t.add_goal_page.description),
+                    hintText: t.add_goal_page.input_description),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20),
@@ -60,14 +61,14 @@ class _AddGoalPageState extends ConsumerState<AddGoalPage> {
                         );
                       },
                       child: Text(
-                        t.add_goal_page.select_date,
+                        t.add_goal_page.input_select_date,
                         style: Theme.of(context).textTheme.bodyText1?.copyWith(
                             fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                     ),
                     Text(
                       _due == null
-                          ? t.add_goal_page.no_date
+                          ? t.add_goal_page.select_date_no_date_selected
                           : Jiffy(_due).format(t.dateformat),
                       style: Theme.of(context).textTheme.bodyText1,
                     )
@@ -78,7 +79,7 @@ class _AddGoalPageState extends ConsumerState<AddGoalPage> {
                 padding: EdgeInsets.only(top: 40),
                 child: LoadingButton(
                   onPressed: () {
-                    ref.read(goalsServiceProvider).createGoal(
+                    ref.read(goalServiceProvider).createGoal(
                         context,
                         _nameController.text,
                         _descriptionController.text,
@@ -87,7 +88,7 @@ class _AddGoalPageState extends ConsumerState<AddGoalPage> {
                   width: MediaQuery.of(context).size.width,
                   background: AppTheme.darkTextColor,
                   height: 50,
-                  child: Text(t.add_goal_page.add_goal),
+                  child: Text(t.add_goal_page.button_add_goal),
                 ),
               )
             ],

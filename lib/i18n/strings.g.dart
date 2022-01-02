@@ -3,9 +3,9 @@
  * Generated file. Do not edit.
  *
  * Locales: 1
- * Strings: 19 
+ * Strings: 23 
  *
- * Built on 2021-12-30 at 02:30 UTC
+ * Built on 2022-01-02 at 16:39 UTC
  */
 
 import 'package:flutter/widgets.dart';
@@ -261,6 +261,7 @@ class _StringsEn {
 	_StringsLoginPageEn get login_page => _StringsLoginPageEn._instance;
 	_StringsHomePageEn get home_page => _StringsHomePageEn._instance;
 	_StringsAddGoalPageEn get add_goal_page => _StringsAddGoalPageEn._instance;
+	_StringsGoalViewPageEn get goal_view_page => _StringsGoalViewPageEn._instance;
 
 	/// A flat map containing all translations.
 	dynamic operator[](String key) => _translationMapEn[key];
@@ -282,7 +283,8 @@ class _StringsHomePageEn {
 	static final _StringsHomePageEn _instance = _StringsHomePageEn._();
 
 	String get fab => 'Add Goal';
-	String get no_goals => 'No Goals.';
+	String get no_goals => 'No Goal.';
+	String get error_loading_goals => 'An error occurred while loading your goals.';
 }
 
 class _StringsAddGoalPageEn {
@@ -291,16 +293,26 @@ class _StringsAddGoalPageEn {
 	static final _StringsAddGoalPageEn _instance = _StringsAddGoalPageEn._();
 
 	String get title => 'Add Goal';
-	String get name => 'Name';
-	String get description => 'Description';
-	String get select_date => 'Select Date';
-	String get no_date => 'No date picked';
-	String get add_goal => 'Add Goal';
-	String get name_empty => 'Name cannot be empty';
-	String get description_empty => 'Description cannot be empty';
-	String get date_empty => 'Date cannot be empty';
-	String get not_logged_in => 'You have to login first';
-	String get error => 'An error occurred';
+	String get input_name => 'Name';
+	String get input_description => 'Description';
+	String get input_select_date => 'Select Date';
+	String get select_date_no_date_selected => 'No date picked';
+	String get button_add_goal => 'Add Goal';
+	String get error_name_empty => 'Name cannot be empty';
+	String get error_description_empty => 'Description cannot be empty';
+	String get error_date_empty => 'Date cannot be empty';
+	String get error_not_logged_in => 'You have to login first';
+	String get error_general => 'An error occurred';
+}
+
+class _StringsGoalViewPageEn {
+	_StringsGoalViewPageEn._(); // no constructor
+
+	static final _StringsGoalViewPageEn _instance = _StringsGoalViewPageEn._();
+
+	String get loading => 'Loading...';
+	String get failed_deleting => 'Failed to delete. Please try again.';
+	String get no_topics_found => 'No topics found.';
 }
 
 /// Flat map(s) containing all translations.
@@ -314,16 +326,20 @@ late final Map<String, dynamic> _translationMapEn = {
 	'login_page.anonymous_button': 'Continue without account',
 	'login_page.error': 'Could not log in',
 	'home_page.fab': 'Add Goal',
-	'home_page.no_goals': 'No Goals.',
+	'home_page.no_goals': 'No Goal.',
+	'home_page.error_loading_goals': 'An error occurred while loading your goals.',
 	'add_goal_page.title': 'Add Goal',
-	'add_goal_page.name': 'Name',
-	'add_goal_page.description': 'Description',
-	'add_goal_page.select_date': 'Select Date',
-	'add_goal_page.no_date': 'No date picked',
-	'add_goal_page.add_goal': 'Add Goal',
-	'add_goal_page.name_empty': 'Name cannot be empty',
-	'add_goal_page.description_empty': 'Description cannot be empty',
-	'add_goal_page.date_empty': 'Date cannot be empty',
-	'add_goal_page.not_logged_in': 'You have to login first',
-	'add_goal_page.error': 'An error occurred',
+	'add_goal_page.input_name': 'Name',
+	'add_goal_page.input_description': 'Description',
+	'add_goal_page.input_select_date': 'Select Date',
+	'add_goal_page.select_date_no_date_selected': 'No date picked',
+	'add_goal_page.button_add_goal': 'Add Goal',
+	'add_goal_page.error_name_empty': 'Name cannot be empty',
+	'add_goal_page.error_description_empty': 'Description cannot be empty',
+	'add_goal_page.error_date_empty': 'Date cannot be empty',
+	'add_goal_page.error_not_logged_in': 'You have to login first',
+	'add_goal_page.error_general': 'An error occurred',
+	'goal_view_page.loading': 'Loading...',
+	'goal_view_page.failed_deleting': 'Failed to delete. Please try again.',
+	'goal_view_page.no_topics_found': 'No topics found.',
 };

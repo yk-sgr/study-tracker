@@ -9,19 +9,25 @@
   },
   "home_page": {
     "fab": "Add Goal",
-    "no_goals": "No Goals."
+    "no_goals": "No Goal.",
+    "error_loading_goals": "An error occurred while loading your goals."
   },
   "add_goal_page": {
     "title": "Add Goal",
-    "name": "Name",
-    "description": "Description",
-    "select_date": "Select Date",
-    "no_date": "No date picked",
-    "add_goal": "Add Goal",
-    "name_empty": "Name cannot be empty",
-    "description_empty": "Description cannot be empty",
-    "date_empty": "Date cannot be empty",
-    "not_logged_in": "You have to login first",
-    "error": "An error occurred"
+    "input_name": "Name",
+    "input_description": "Description",
+    "input_select_date": "Select Date",
+    "select_date_no_date_selected": "No date picked",
+    "button_add_goal": "Add Goal",
+    "error_name_empty": "Name cannot be empty",
+    "error_description_empty": "Description cannot be empty",
+    "error_date_empty": "Date cannot be empty",
+    "error_not_logged_in": "You have to login first",
+    "error_general": "An error occurred"
+  },
+  "goal_view_page": {
+    "loading": "Loading...",
+    "failed_deleting": "Failed to delete. Please try again.",
+    "no_topics_found": "No topics found."
   }
 }

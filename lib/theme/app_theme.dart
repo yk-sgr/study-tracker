@@ -6,6 +6,7 @@ class AppTheme {
   static const Color secondaryColor = Color(0xFF93C3C0);
   static const Color tertiaryColor = Color(0xFFFFFFFF);
   static const Color darkTextColor = Color(0xFF303030);
+  static const Color lightActionColor = Color(0xFFB3B2B2);
 
   static TextStyle headline1 = GoogleFonts.openSans(
     fontSize: 24,
