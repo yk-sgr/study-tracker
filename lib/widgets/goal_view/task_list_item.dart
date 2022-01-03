@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:study_tracker/models/task.dart';
 import 'package:study_tracker/theme/app_theme.dart';
 
-class TaskListItem extends StatefulWidget {
+class TaskListItem extends StatelessWidget {
   final Task task;
 
   final Function(Task task) onTaskUpdate;
@@ -13,20 +13,6 @@ class TaskListItem extends StatefulWidget {
       {required this.task,
       required this.onTaskUpdate,
       required this.onTaskDelete});
-
-  @override
-  State createState() => _TaskListItemState();
-}
-
-class _TaskListItemState extends State<TaskListItem> {
-  late Task task;
-
-  @override
-  void initState() {
-    task = widget.task;
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +32,7 @@ class _TaskListItemState extends State<TaskListItem> {
             Row(
               children: [
                 task.done ? _taskDoneButton() : _taskNotDoneButton(),
-                _taskName(),
+                _taskName(context),
               ],
             ),
             _deleteTaskButton()
@@ -56,7 +42,7 @@ class _TaskListItemState extends State<TaskListItem> {
     );
   }
 
-  Widget _taskName() {
+  Widget _taskName(BuildContext context) {
     return Text(
       task.name,
       style: Theme.of(context)
@@ -69,10 +55,8 @@ class _TaskListItemState extends State<TaskListItem> {
   Widget _taskDoneButton() {
     return IconButton(
       onPressed: () {
-        setState(() {
-          task.done = false;
-        });
-        widget.onTaskUpdate(task);
+        task.done = false;
+        onTaskUpdate(task);
       },
       icon: Icon(
         Icons.check_box,
@@ -84,10 +68,8 @@ class _TaskListItemState extends State<TaskListItem> {
   Widget _taskNotDoneButton() {
     return IconButton(
       onPressed: () {
-        setState(() {
-          task.done = true;
-        });
-        widget.onTaskUpdate(task);
+        task.done = true;
+        onTaskUpdate(task);
       },
       icon: Icon(
         Icons.check_box_outline_blank_outlined,
@@ -99,7 +81,7 @@ class _TaskListItemState extends State<TaskListItem> {
   Widget _deleteTaskButton() {
     return IconButton(
       iconSize: 20,
-      onPressed: () => widget.onTaskDelete(task),
+      onPressed: () => onTaskDelete(task),
       icon: FaIcon(
         FontAwesomeIcons.trash,
         color: AppTheme.lightActionColor,
