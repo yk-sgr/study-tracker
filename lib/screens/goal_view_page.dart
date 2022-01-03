@@ -15,10 +15,10 @@ class GoalViewPage extends ConsumerStatefulWidget {
   static String pathNoParameters = '/goals/details/';
 
   @override
-  ConsumerState createState() => _GoalViewPageState();
+  _GoalViewPageState createState() => _GoalViewPageState();
 }
 
-class _GoalViewPageState extends ConsumerState {
+class _GoalViewPageState extends ConsumerState<GoalViewPage> {
   Goal? goal;
 
   @override
