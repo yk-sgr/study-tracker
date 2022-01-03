@@ -9,7 +9,7 @@ import 'package:study_tracker/widgets/loading_button.dart';
 import 'package:study_tracker/widgets/text_input.dart';
 import 'package:vrouter/vrouter.dart';
 
-import 'goal_view.dart';
+import 'goal_view_page.dart';
 import 'home_page.dart';
 
 class AddTaskPage extends ConsumerStatefulWidget {

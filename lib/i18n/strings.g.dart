@@ -2,10 +2,10 @@
 /*
  * Generated file. Do not edit.
  *
- * Locales: 1
- * Strings: 23 
+ * Locales: 2
+ * Strings: 48 (24.0 per locale)
  *
- * Built on 2022-01-02 at 16:39 UTC
+ * Built on 2022-01-03 at 13:51 UTC
  */
 
 import 'package:flutter/widgets.dart';
@@ -21,6 +21,7 @@ AppLocale _currLocale = _baseLocale;
 /// - if (LocaleSettings.currentLocale == AppLocale.en) // locale check
 enum AppLocale {
 	en, // 'en' (base locale, fallback)
+	de, // 'de'
 }
 
 /// Method A: Simple
@@ -136,18 +137,21 @@ extension AppLocaleExtensions on AppLocale {
 	_StringsEn get translations {
 		switch (this) {
 			case AppLocale.en: return _StringsEn._instance;
+			case AppLocale.de: return _StringsDe._instance;
 		}
 	}
 
 	String get languageTag {
 		switch (this) {
 			case AppLocale.en: return 'en';
+			case AppLocale.de: return 'de';
 		}
 	}
 
 	Locale get flutterLocale {
 		switch (this) {
 			case AppLocale.en: return const Locale.fromSubtags(languageCode: 'en');
+			case AppLocale.de: return const Locale.fromSubtags(languageCode: 'de');
 		}
 	}
 }
@@ -156,6 +160,7 @@ extension StringAppLocaleExtensions on String {
 	AppLocale? toAppLocale() {
 		switch (this) {
 			case 'en': return AppLocale.en;
+			case 'de': return AppLocale.de;
 			default: return null;
 		}
 	}
@@ -311,8 +316,75 @@ class _StringsGoalViewPageEn {
 	static final _StringsGoalViewPageEn _instance = _StringsGoalViewPageEn._();
 
 	String get loading => 'Loading...';
+	String get add_task => 'Add task';
 	String get failed_deleting => 'Failed to delete. Please try again.';
-	String get no_topics_found => 'No topics found.';
+	String get no_tasks_found => 'No tasks found.';
+}
+
+class _StringsDe implements _StringsEn {
+	_StringsDe._(); // no constructor
+
+	static final _StringsDe _instance = _StringsDe._();
+
+	@override String get appName => 'Lernfortschritt Tracker';
+	@override String get appNameShort => 'Lern Tracker';
+	@override String get dateformat => 'dd.MM.yyyy';
+	@override _StringsLoginPageDe get login_page => _StringsLoginPageDe._instance;
+	@override _StringsHomePageDe get home_page => _StringsHomePageDe._instance;
+	@override _StringsAddGoalPageDe get add_goal_page => _StringsAddGoalPageDe._instance;
+	@override _StringsGoalViewPageDe get goal_view_page => _StringsGoalViewPageDe._instance;
+
+	/// A flat map containing all translations.
+	@override dynamic operator[](String key) => _translationMapDe[key];
+}
+
+class _StringsLoginPageDe implements _StringsLoginPageEn {
+	_StringsLoginPageDe._(); // no constructor
+
+	static final _StringsLoginPageDe _instance = _StringsLoginPageDe._();
+
+	@override String get google_button => 'Mit Google Anmelden';
+	@override String get anonymous_button => 'Ohne Account fortfahren';
+	@override String get error => 'Fehler beim Anmelden';
+}
+
+class _StringsHomePageDe implements _StringsHomePageEn {
+	_StringsHomePageDe._(); // no constructor
+
+	static final _StringsHomePageDe _instance = _StringsHomePageDe._();
+
+	@override String get fab => 'Ziel hinzufügen';
+	@override String get no_goals => 'Keine Ziele.';
+	@override String get error_loading_goals => 'Ziele konnten nicht geladen werden.';
+}
+
+class _StringsAddGoalPageDe implements _StringsAddGoalPageEn {
+	_StringsAddGoalPageDe._(); // no constructor
+
+	static final _StringsAddGoalPageDe _instance = _StringsAddGoalPageDe._();
+
+	@override String get title => 'Ziel hinzufügen';
+	@override String get input_name => 'Name';
+	@override String get input_description => 'Beschreibung';
+	@override String get input_select_date => 'Datum auswählen';
+	@override String get select_date_no_date_selected => 'Kein Datum ausgewählt';
+	@override String get button_add_goal => 'Ziel hinzufügen';
+	@override String get error_name_empty => 'Der Name darf nicht leer sein';
+	@override String get error_description_empty => 'Die Beschreibung darf nicht leer sein.';
+	@override String get error_date_empty => 'Ein Datum muss ausgewählt werden.';
+	@override String get error_not_logged_in => 'Du musst dich zuerst anmelden.';
+	@override String get error_general => 'Ein Fehler ist aufgetreten.';
+}
+
+class _StringsGoalViewPageDe implements _StringsGoalViewPageEn {
+	_StringsGoalViewPageDe._(); // no constructor
+
+	static final _StringsGoalViewPageDe _instance = _StringsGoalViewPageDe._();
+
+	@override String get loading => 'Laden...';
+	@override String get add_task => 'Aufgabe hinzufügen';
+	@override String get failed_deleting => 'Löschen ist fehlgeschlagen.';
+	@override String get no_tasks_found => 'Keine Aufgaben gefunden.';
 }
 
 /// Flat map(s) containing all translations.
@@ -340,6 +412,34 @@ late final Map<String, dynamic> _translationMapEn = {
 	'add_goal_page.error_not_logged_in': 'You have to login first',
 	'add_goal_page.error_general': 'An error occurred',
 	'goal_view_page.loading': 'Loading...',
+	'goal_view_page.add_task': 'Add task',
 	'goal_view_page.failed_deleting': 'Failed to delete. Please try again.',
-	'goal_view_page.no_topics_found': 'No topics found.',
+	'goal_view_page.no_tasks_found': 'No tasks found.',
+};
+
+late final Map<String, dynamic> _translationMapDe = {
+	'appName': 'Lernfortschritt Tracker',
+	'appNameShort': 'Lern Tracker',
+	'dateformat': 'dd.MM.yyyy',
+	'login_page.google_button': 'Mit Google Anmelden',
+	'login_page.anonymous_button': 'Ohne Account fortfahren',
+	'login_page.error': 'Fehler beim Anmelden',
+	'home_page.fab': 'Ziel hinzufügen',
+	'home_page.no_goals': 'Keine Ziele.',
+	'home_page.error_loading_goals': 'Ziele konnten nicht geladen werden.',
+	'add_goal_page.title': 'Ziel hinzufügen',
+	'add_goal_page.input_name': 'Name',
+	'add_goal_page.input_description': 'Beschreibung',
+	'add_goal_page.input_select_date': 'Datum auswählen',
+	'add_goal_page.select_date_no_date_selected': 'Kein Datum ausgewählt',
+	'add_goal_page.button_add_goal': 'Ziel hinzufügen',
+	'add_goal_page.error_name_empty': 'Der Name darf nicht leer sein',
+	'add_goal_page.error_description_empty': 'Die Beschreibung darf nicht leer sein.',
+	'add_goal_page.error_date_empty': 'Ein Datum muss ausgewählt werden.',
+	'add_goal_page.error_not_logged_in': 'Du musst dich zuerst anmelden.',
+	'add_goal_page.error_general': 'Ein Fehler ist aufgetreten.',
+	'goal_view_page.loading': 'Laden...',
+	'goal_view_page.add_task': 'Aufgabe hinzufügen',
+	'goal_view_page.failed_deleting': 'Löschen ist fehlgeschlagen.',
+	'goal_view_page.no_tasks_found': 'Keine Aufgaben gefunden.',
 };

@@ -4,7 +4,7 @@ import 'package:jiffy/jiffy.dart';
 import 'package:study_tracker/i18n/strings.g.dart';
 import 'package:study_tracker/provider/goals_provider.dart';
 import 'package:study_tracker/screens/add_goal_page.dart';
-import 'package:study_tracker/screens/goal_view.dart';
+import 'package:study_tracker/screens/goal_view_page.dart';
 import 'package:study_tracker/theme/app_theme.dart';
 import 'package:vrouter/vrouter.dart';
 

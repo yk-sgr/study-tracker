@@ -27,7 +27,8 @@
   },
   "goal_view_page": {
     "loading": "Loading...",
+    "add_task": "Add task",
     "failed_deleting": "Failed to delete. Please try again.",
-    "no_topics_found": "No topics found."
+    "no_tasks_found": "No tasks found."
   }
 }

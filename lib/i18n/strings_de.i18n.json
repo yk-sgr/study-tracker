@@ -1,0 +1,34 @@
+{
+  "appName": "Lernfortschritt Tracker",
+  "appNameShort": "Lern Tracker",
+  "dateformat": "dd.MM.yyyy",
+  "login_page": {
+    "google_button": "Mit Google Anmelden",
+    "anonymous_button": "Ohne Account fortfahren",
+    "error": "Fehler beim Anmelden"
+  },
+  "home_page": {
+    "fab": "Ziel hinzufügen",
+    "no_goals": "Keine Ziele.",
+    "error_loading_goals": "Ziele konnten nicht geladen werden."
+  },
+  "add_goal_page": {
+    "title": "Ziel hinzufügen",
+    "input_name": "Name",
+    "input_description": "Beschreibung",
+    "input_select_date": "Datum auswählen",
+    "select_date_no_date_selected": "Kein Datum ausgewählt",
+    "button_add_goal": "Ziel hinzufügen",
+    "error_name_empty": "Der Name darf nicht leer sein",
+    "error_description_empty": "Die Beschreibung darf nicht leer sein.",
+    "error_date_empty": "Ein Datum muss ausgewählt werden.",
+    "error_not_logged_in": "Du musst dich zuerst anmelden.",
+    "error_general": "Ein Fehler ist aufgetreten."
+  },
+  "goal_view_page": {
+    "loading": "Laden...",
+    "add_task": "Aufgabe hinzufügen",
+    "failed_deleting": "Löschen ist fehlgeschlagen.",
+    "no_tasks_found": "Keine Aufgaben gefunden."
+  }
+}
