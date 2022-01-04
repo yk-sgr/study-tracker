@@ -20,7 +20,8 @@
     "select_date_no_date_selected": "Kein Datum ausgewählt",
     "button_add_goal": "Ziel hinzufügen",
     "error_name_empty": "Der Name darf nicht leer sein",
-    "error_description_empty": "Die Beschreibung darf nicht leer sein.",
+    "error_name_too_long": "Der Name ist zu lang",
+    "error_description_too_long": "Die Beschreibung ist zu lang",
     "error_date_empty": "Ein Datum muss ausgewählt werden.",
     "error_not_logged_in": "Du musst dich zuerst anmelden.",
     "error_general": "Ein Fehler ist aufgetreten."
@@ -30,5 +31,10 @@
     "add_task": "Aufgabe hinzufügen",
     "failed_deleting": "Löschen ist fehlgeschlagen.",
     "no_tasks_found": "Keine Aufgaben gefunden."
+  },
+  "add_task_page": {
+    "title": "Aufgabe hinzufügen",
+    "input_name": "Name",
+    "button_add_task": "Aufgabe hinzufügen"
   }
 }

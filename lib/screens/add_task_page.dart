@@ -59,7 +59,7 @@ class _AddTaskPageState extends ConsumerState<AddTaskPage> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.add_goal_page.title),
+        title: Text(Translations.of(context).add_task_page.title),
       ),
       body: Padding(
         padding: EdgeInsets.only(top: 40, left: 20, right: 20),
@@ -88,7 +88,7 @@ class _AddTaskPageState extends ConsumerState<AddTaskPage> {
         children: [
           TextInput(
               controller: _nameController,
-              hintText: t.add_goal_page.input_name),
+              hintText: Translations.of(context).add_task_page.input_name),
           Padding(
             padding: EdgeInsets.only(top: 40),
             child: LoadingButton(
@@ -96,13 +96,15 @@ class _AddTaskPageState extends ConsumerState<AddTaskPage> {
                 setState(() {
                   goal!.tasks.add(Task(_nameController.text, false));
                 });
-                await ref.read(goalServiceProvider).updateGoal(goal!);
-                context.vRouter.to("${GoalViewPage.pathNoParameters}${goal!.id}");
+                await ref.read(goalServiceProvider).updateGoal(context, goal!);
+                context.vRouter
+                    .to("${GoalViewPage.pathNoParameters}${goal!.id}");
               },
               width: MediaQuery.of(context).size.width,
               background: AppTheme.darkTextColor,
               height: 50,
-              child: Text(t.add_goal_page.button_add_goal),
+              child:
+                  Text(Translations.of(context).add_task_page.button_add_task),
             ),
           )
         ],

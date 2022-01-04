@@ -100,7 +100,7 @@ class _GoalViewPageState extends ConsumerState<GoalViewPage> {
         context.vRouter.to('${AddTaskPage.pathNoParameters}${goal!.id}');
       },
       label: Text(
-        t.goal_view_page.add_task,
+        Translations.of(context).goal_view_page.add_task,
         style: Theme.of(context).textTheme.bodyText1,
       ),
     );

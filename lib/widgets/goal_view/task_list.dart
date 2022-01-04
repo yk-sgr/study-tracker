@@ -57,13 +57,13 @@ class _TaskListState extends ConsumerState<TaskList> {
       goal.tasks.removeWhere((element) => element.name == task.name);
       goal.tasks.add(task);
     });
-    await ref.read(goalServiceProvider).updateGoal(goal);
+    await ref.read(goalServiceProvider).updateGoal(context, goal);
   }
 
   void _onTaskDelete(Task task) async {
     setState(() {
       goal.tasks.removeWhere((element) => element.name == task.name);
     });
-    await ref.read(goalServiceProvider).updateGoal(goal);
+    await ref.read(goalServiceProvider).updateGoal(context, goal);
   }
 }

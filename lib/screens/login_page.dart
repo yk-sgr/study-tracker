@@ -70,7 +70,7 @@ class LoginPage extends ConsumerWidget {
         ref.read(userServiceProvider).signInAnonymous(context);
       },
       child: Text(
-        t.login_page.anonymous_button,
+        Translations.of(context).login_page.anonymous_button,
         style: Theme.of(context).textTheme.subtitle2,
       ),
     );
@@ -101,7 +101,7 @@ class LoginPage extends ConsumerWidget {
               child: Align(
                 alignment: Alignment.center,
                 child: Text(
-                  t.login_page.google_button,
+                  Translations.of(context).login_page.google_button,
                   style: Theme.of(context).textTheme.subtitle2,
                 ),
               ),

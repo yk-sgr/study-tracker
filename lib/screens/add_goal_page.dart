@@ -44,7 +44,7 @@ class _AddGoalPageState extends ConsumerState<AddGoalPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.add_goal_page.title),
+        title: Text(Translations.of(context).add_goal_page.title),
       ),
       body: Padding(
         padding: EdgeInsets.only(top: 40, left: 20, right: 20),
@@ -54,12 +54,12 @@ class _AddGoalPageState extends ConsumerState<AddGoalPage> {
             children: [
               TextInput(
                   controller: _nameController,
-                  hintText: t.add_goal_page.input_name),
+                  hintText: Translations.of(context).add_goal_page.input_name),
               Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child: TextInput(
                     controller: _descriptionController,
-                    hintText: t.add_goal_page.input_description),
+                    hintText: Translations.of(context).add_goal_page.input_description),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20),
@@ -79,15 +79,15 @@ class _AddGoalPageState extends ConsumerState<AddGoalPage> {
                         );
                       },
                       child: Text(
-                        t.add_goal_page.input_select_date,
+                        Translations.of(context).add_goal_page.input_select_date,
                         style: Theme.of(context).textTheme.bodyText1?.copyWith(
                             fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                     ),
                     Text(
                       _due == null
-                          ? t.add_goal_page.select_date_no_date_selected
-                          : Jiffy(_due).format(t.dateformat),
+                          ? Translations.of(context).add_goal_page.select_date_no_date_selected
+                          : Jiffy(_due).format(Translations.of(context).dateformat),
                       style: Theme.of(context).textTheme.bodyText1,
                     )
                   ],
@@ -96,8 +96,8 @@ class _AddGoalPageState extends ConsumerState<AddGoalPage> {
               Padding(
                 padding: EdgeInsets.only(top: 40),
                 child: LoadingButton(
-                  onPressed: () {
-                    ref.read(goalServiceProvider).createGoal(
+                  onPressed: () async {
+                    await ref.read(goalServiceProvider).createGoal(
                         context,
                         _nameController.text,
                         _descriptionController.text,
@@ -106,7 +106,7 @@ class _AddGoalPageState extends ConsumerState<AddGoalPage> {
                   width: MediaQuery.of(context).size.width,
                   background: AppTheme.darkTextColor,
                   height: 50,
-                  child: Text(t.add_goal_page.button_add_goal),
+                  child: Text(Translations.of(context).add_goal_page.button_add_goal),
                 ),
               )
             ],

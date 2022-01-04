@@ -34,7 +34,7 @@ class HomePage extends ConsumerWidget {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: Text(t.appNameShort),
+          title: Text(Translations.of(context).appNameShort),
         ),
         floatingActionButton: _fab(context),
         body: SizedBox(
@@ -63,7 +63,7 @@ class HomePage extends ConsumerWidget {
       );
     }
     if (goals.isEmpty) {
-      return Text(t.home_page.no_goals,
+      return Text(Translations.of(context).home_page.no_goals,
           style: Theme.of(context).textTheme.bodyText1);
     }
     return Expanded(
@@ -119,16 +119,19 @@ class HomePage extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  goal.name,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1
-                                      ?.copyWith(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
+                                Expanded(
+                                  child: Text(
+                                    goal.name,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1
+                                        ?.copyWith(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold),
+                                  ),
                                 ),
                                 Text(
                                   Jiffy(DateTime.parse(goal.due))

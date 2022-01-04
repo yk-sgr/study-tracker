@@ -69,24 +69,35 @@ class GoalService {
 
   GoalService(this._read);
 
-  void createGoal(BuildContext context, String name, String description,
+  Future createGoal(BuildContext context, String name, String description,
       DateTime? due) async {
     if (name.isEmpty) {
-      Fluttertoast.showToast(msg: t.add_goal_page.error_name_empty);
+      Fluttertoast.showToast(
+          msg: Translations.of(context).add_goal_page.error_name_empty);
       return null;
     }
-    if (description.isEmpty) {
-      Fluttertoast.showToast(msg: t.add_goal_page.error_description_empty);
+    if (name.length > 64) {
+      Fluttertoast.showToast(
+          msg: Translations.of(context).add_goal_page.error_name_too_long);
+      return null;
+    }
+    if (description.length > 256) {
+      Fluttertoast.showToast(
+          msg: Translations.of(context)
+              .add_goal_page
+              .error_description_too_long);
       return null;
     }
     if (due == null) {
-      Fluttertoast.showToast(msg: t.add_goal_page.error_date_empty);
+      Fluttertoast.showToast(
+          msg: Translations.of(context).add_goal_page.error_date_empty);
       return null;
     }
 
     final user = _read(userProvider).value;
     if (user == null) {
-      Fluttertoast.showToast(msg: t.add_goal_page.error_not_logged_in);
+      Fluttertoast.showToast(
+          msg: Translations.of(context).add_goal_page.error_not_logged_in);
       return null;
     }
 
@@ -98,14 +109,16 @@ class GoalService {
     } catch (error, stacktrace) {
       debugPrint(error.toString());
       debugPrintStack(stackTrace: stacktrace);
-      Fluttertoast.showToast(msg: t.add_goal_page.error_general);
+      Fluttertoast.showToast(
+          msg: Translations.of(context).add_goal_page.error_general);
     }
   }
 
-  Future updateGoal(Goal goal) async {
+  Future updateGoal(BuildContext context, Goal goal) async {
     final user = _read(userProvider).value;
     if (user == null) {
-      Fluttertoast.showToast(msg: t.add_goal_page.error_not_logged_in);
+      Fluttertoast.showToast(
+          msg: Translations.of(context).add_goal_page.error_not_logged_in);
       return null;
     }
     try {
@@ -116,7 +129,8 @@ class GoalService {
     } catch (error, stacktrace) {
       debugPrint(error.toString());
       debugPrintStack(stackTrace: stacktrace);
-      Fluttertoast.showToast(msg: t.add_goal_page.error_general);
+      Fluttertoast.showToast(
+          msg: Translations.of(context).add_goal_page.error_general);
     }
   }
 
@@ -127,7 +141,8 @@ class GoalService {
     } catch (error, stacktrace) {
       debugPrint(error.toString());
       debugPrintStack(stackTrace: stacktrace);
-      Fluttertoast.showToast(msg: t.goal_view_page.failed_deleting);
+      Fluttertoast.showToast(
+          msg: Translations.of(context).goal_view_page.failed_deleting);
     }
   }
 }

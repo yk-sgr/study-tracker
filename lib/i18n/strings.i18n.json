@@ -20,7 +20,8 @@
     "select_date_no_date_selected": "No date picked",
     "button_add_goal": "Add Goal",
     "error_name_empty": "Name cannot be empty",
-    "error_description_empty": "Description cannot be empty",
+    "error_name_too_long": "Name is too long",
+    "error_description_too_long": "Description is too long",
     "error_date_empty": "Date cannot be empty",
     "error_not_logged_in": "You have to login first",
     "error_general": "An error occurred"
@@ -30,5 +31,10 @@
     "add_task": "Add task",
     "failed_deleting": "Failed to delete. Please try again.",
     "no_tasks_found": "No tasks found."
+  },
+  "add_task_page": {
+    "title": "Add Task",
+    "input_name": "Name",
+    "button_add_task": "Add Task"
   }
 }
