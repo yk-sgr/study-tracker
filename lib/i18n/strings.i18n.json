@@ -1,0 +1,40 @@
+{
+  "appName": "Study Progress Tracker",
+  "appNameShort": "Study Tracker",
+  "dateformat": "MM/dd/yyyy",
+  "login_page": {
+    "google_button": "Sign in with Google",
+    "anonymous_button": "Continue without account",
+    "error": "Could not log in"
+  },
+  "home_page": {
+    "fab": "Add Goal",
+    "no_goals": "No Goal.",
+    "error_loading_goals": "An error occurred while loading your goals."
+  },
+  "add_goal_page": {
+    "title": "Add Goal",
+    "input_name": "Name",
+    "input_description": "Description",
+    "input_select_date": "Select Date",
+    "select_date_no_date_selected": "No date picked",
+    "button_add_goal": "Add Goal",
+    "error_name_empty": "Name cannot be empty",
+    "error_name_too_long": "Name is too long",
+    "error_description_too_long": "Description is too long",
+    "error_date_empty": "Date cannot be empty",
+    "error_not_logged_in": "You have to login first",
+    "error_general": "An error occurred"
+  },
+  "goal_view_page": {
+    "loading": "Loading...",
+    "add_task": "Add task",
+    "failed_deleting": "Failed to delete. Please try again.",
+    "no_tasks_found": "No tasks found."
+  },
+  "add_task_page": {
+    "title": "Add Task",
+    "input_name": "Name",
+    "button_add_task": "Add Task"
+  }
+}
